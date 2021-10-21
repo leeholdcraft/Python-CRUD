@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Read (all)</title>
+</head>
+<body>
+  <h1>All users:</h1>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name:</th>
+            <th scope="col">Email :</th>
+            <th scope="col">Created at :</th>
+            <th scope="col">Actions: </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in users %}
+          <tr>
+            <th scope="row">{{row['id']}}</th>
+            <td>{{row['first_name']}} {{row['last_name']}}</td>
+            <td>{{row['email']}}</td>
+            <td>{{row['created_at']}}</td>
+            <td><a href="/show/{{row['id']}}">Show</a> <a href="/edit/{{row['id']}}">Edit</a> <a href="/delete/{{row['id']}}">Delete</a></td>
+          </tr>
+          {% endfor %}
+      </table>
+      <a href='/create'><button type="button" class="btn btn-primary">Add new users</button></a>
+</body>
+</html>
